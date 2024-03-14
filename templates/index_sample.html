@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Similarity Search</title>
+</head>
+<body>
+    <h1>이미지 유사도 검색</h1>
+    <form id="upload-form" action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <input type="button" value="찾기" onclick="uploadImage()">
+    </form>
+    <div id="results"></div>
+
+    <script>
+        function uploadImage() {
+            var formData = new FormData(document.getElementById('upload-form'));
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => displayResults(data))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function displayResults(data) {
+            var resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+            data.matches.forEach(match => {
+                // Base64 인코딩된 이미지를 HTML 이미지 요소로 변환
+                var imgElement = document.createElement('img');
+                imgElement.src = 'data:image/png;base64,' + match.image_base64;
+                resultsContainer.appendChild(imgElement);
+            });
+        }
+    </script>
+</body>
+</html>

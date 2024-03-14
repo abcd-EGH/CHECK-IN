@@ -1,0 +1,87 @@
+CRAFT
+Copyright (c) 2019-present NAVER Corp.
+MIT License
+CRAFT is a text detection algorithm that is used to identify text areas within an image.
+Reference: CRAFT GitHub Repository (https://github.com/clovaai/CRAFT-pytorch)
+Research Paper: "CRAFT: Character Region Awareness for Text Detection"
+                 (https://arxiv.org/abs/1904.01941)
+
+Annoy
+Annoy (Approximate Nearest Neighbors Oh Yeah) - A C++ library with Python bindings
+to search for points in space that are close to a given query point.
+Originally developed by Erik Bernhardsson at Spotify, Annoy is widely used in
+various applications for efficient similarity search of high-dimensional vectors.
+GitHub Repository: https://github.com/spotify/annoy
+Documentation: https://github.com/spotify/annoy#readme
+
+Flask
+Flask is a micro web framework for Python based on Werkzeug, Jinja 2 and good intentions.
+Used here to create a web server for handling image upload and processing requests.
+Reference: Flask Documentation (https://flask.palletsprojects.com/)
+
+PyTorch
+PyTorch is an open-source machine learning library for Python, used for applications such as
+neural networks. It is used here for loading and utilizing the deep learning model.
+Reference: PyTorch Documentation (https://pytorch.org/docs/stable/index.html)
+
+Pillow (PIL)
+Pillow is a Python Imaging Library (PIL) fork that adds image processing capabilities
+to your Python interpreter. In this application, it is used to open and process images.
+Reference: Pillow Documentation (https://pillow.readthedocs.io/en/stable/)
+
+OpenCV (cv2)
+OpenCV is a library of programming functions mainly aimed at real-time computer vision.
+Here it is used for image processing tasks such as converting images to grayscale.
+Reference: OpenCV Documentation (https://docs.opencv.org/master/)
+
+Scikit-Image (skimage)
+Scikit-Image is a collection of algorithms for image processing in Python.
+It is used in this application for tasks like reading images.
+Reference: Scikit-Image Documentation (https://scikit-image.org/docs/stable/)
+
+SQLAlchemy
+SQLAlchemy is a SQL toolkit and Object-Relational Mapping (ORM) library for Python.
+It is used here for database interactions.
+Reference: SQLAlchemy Documentation (https://www.sqlalchemy.org/)
+
+NumPy
+NumPy is a library for the Python programming language, adding support for large,
+multi-dimensional arrays and matrices, along with a large collection of high-level
+mathematical functions to operate on these arrays.
+Reference: NumPy Documentation (https://numpy.org/doc/)
+
+EfficientNet
+EfficientNet is a scalable deep learning model for computer vision,
+known for its efficiency in balancing model size and accuracy. It's widely used
+for tasks like image classification and object detection.
+Reference: "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks"
+            paper (https://arxiv.org/abs/1905.11946)
+
+MoCov2
+MoCov2 is a deep learning model for unsupervised visual representation learning.
+It's effective in learning from large datasets without requiring labeled data,
+improving over its predecessor MoCo with better representation quality.
+Reference: "Improved Baselines with Momentum Contrastive Learning"
+            paper (https://arxiv.org/abs/2003.04297)
+
+MoCo
+MoCo (Momentum Contrast) is a deep learning approach for unsupervised visual
+representation learning. It uses a contrastive loss framework to learn meaningful features
+from unlabeled images, making it useful in situations where labeled data is limited.
+MoCo is notable for its innovative use of a momentum-based moving average
+of the model parameters, facilitating stable and effective learning of visual representations.
+Reference: "Momentum Contrast for Unsupervised Visual Representation Learning"
+            paper (https://arxiv.org/abs/1911.05722)
+
+SQLite
+SQLite is a compact, serverless SQL database engine used widely in applications
+for local storage. It's known for being lightweight, requiring zero configuration,
+and supporting standard SQL features. SQLite is ideal for mobile apps, web browsers,
+and other applications where a full-scale database server is not necessary.
+Reference: SQLite Official Documentation (https://www.sqlite.org/docs.html)
+
+tqdm                                                                                     
+tqdm is a Python library for displaying progress bars in the console or Jupyter notebooks.
+It's used to show visual progress indicators for loops and long-running processes,
+improving user experience and monitoring.
+Reference: tqdm Documentation (https://tqdm.github.io/) 

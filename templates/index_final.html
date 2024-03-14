@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Adequately 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130910
+
+--><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title></title><meta name="keywords" content=""><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="description" content=""><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"><link href="{{ url_for('static', filename='default.css') }}" rel="stylesheet" type="text/css" media="all"><link href="{{ url_for('static', filename='fonts.css') }}" rel="stylesheet" type="text/css" media="all"><!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+	<style>
+        #uploaded-image {
+            width: 282px; /* 너비를 282픽셀로 고정 */
+			margin-left: auto; /* 왼쪽 마진을 자동으로 설정하여 오른쪽과 동일하게 조정합니다. */
+    		margin-right: auto; /* 오른쪽 마진을 자동으로 설정합니다. */
+            height: auto; /* 높이를 자동으로 설정하여 비율 유지 */
+            display: block; /* 이미지가 보이도록 설정 */
+        }
+    </style>
+</head><body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">CHECK-IN</a></h1>
+			<span>CHECK for INfringement of your copyright <a href="null" rel="nofollow"></a></span> </div>
+	</div>
+</div>
+<div id="wrapper1">
+	<div id="welcome" class="container">
+		<div class="title">
+			<h2>귀하의 이미지와 유사한 이미지가 있는지 확인해보세요!</h2>
+			<span class="byline">이미지를 선택하거나 이 페이지에 드래그 앤 드롭하여 업로드해 주세요.</span>
+		</div>
+		<div class="content">
+			<p>이미지를 업로드하여 저작권 침해 여부를 확인할 수 있습니다.</p>
+			<form id="upload-form" enctype="multipart/form-data">
+				<input type="file" id="image-upload" name="image" accept="image/*">
+				<span id="file-name"></span>
+			</form>
+			<button id="find-similar-images" class="button" onclick="uploadImage()">유사한 이미지 찾기</button>
+			<button id="restart-analysis" class="button">분석 다시 시작</button>
+			<div id="upload-status"></div>
+		</div>
+	</div>
+</div>
+
+<div id="wrapper3">
+    <div id="portfolio" class="container">
+        <div class="title">
+            <h2>유사한 이미지</h2>
+            <span class="byline">입력한 이미지와 유사한 이미지들</span>
+        </div>
+		<div class="column0">
+            <div class="box">
+				<label for="uploaded-image" style="display: block; text-align: center;">입력한 이미지</label>
+				<a href="#"><img id="uploaded-image" alt="Uploaded Image" class="image image-full" style="display: none;"></a>
+            </div>
+        </div>
+        <div class="column1">
+            <div class="box">
+                <a href="#"><img id="result-image-1" alt="" class="image image-full" style="display: none;" width="282" height="360"></a>
+                <label id="similarity-1" style="display: none;"></label>
+				<label id="boxoverlap-1" style="display: none;"></label>
+            </div>
+        </div>
+        <div class="column2">
+            <div class="box">
+                <a href="#"><img id="result-image-2" alt="" class="image image-full" style="display: none;" width="282" height="360"></a>
+                <label id="similarity-2" style="display: none;"></label>
+				<label id="boxoverlap-2" style="display: none;"></label>
+            </div>
+        </div>
+        <div class="column3">
+            <div class="box">
+                <a href="#"><img id="result-image-3" alt="" class="image image-full" style="display: none;" width="282" height="360"></a>
+                <label id="similarity-3" style="display: none;"></label>
+				<label id="boxoverlap-3" style="display: none;"></label>
+            </div>
+        </div>
+        <div class="column4">
+            <div class="box">
+                <a href="#"><img id="result-image-4" alt="" class="image image-full" style="display: none;" width="282" height="360"></a>
+                <label id="similarity-4" style="display: none;"></label>
+				<label id="boxoverlap-4" style="display: none;"></label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="copyright">
+	Powered by: <a href="null">고려대학교 3조: 강민아, 금경창, 이지환, 조예솔</a>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	function restartAnalysis() {
+		// 업로드한 이미지 숨기기
+		$('#uploaded-image').css('display', 'none');
+
+		// 기존의 4개 이미지 및 라벨 초기화
+		for (var i = 1; i <= 4; i++) {
+			$('#result-image-' + i).css('display', 'none');
+			$('#similarity-' + i).text('');
+			$('#boxoverlap-' + i).text('');
+		}
+
+		// 업로드 상태 및 파일 이름 초기화
+		$('#upload-status').text('');
+		$('#file-name').text('');
+		$('#image-upload').val('');
+	}
+
+	function displayUploadedimage(imageBase64) {
+		if (imageBase64) {
+			$('#uploaded-image')
+				.attr('src', 'data:image/jpeg;base64,' + imageBase64)
+				.css('display', 'block');
+		}
+	}
+
+	$(document).ready(function(){
+		$('#start-button').on('click', function(){
+			// AJAX 요청을 추가
+			$.ajax({
+				url: '/predict',
+				type: 'POST',
+				data: {/* 이미지 데이터 */},
+				success: function(response) {
+					// JSON 데이터로부터 이미지 경로 업데이트
+					updateImages(response.matches);
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+		});
+
+		$('#restart-analysis').on('click', function() {
+        	restartAnalysis(); // 새로 고침 이벤트 핸들러 추가
+    	});
+	});
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var dropArea = document.getElementById('wrapper1');
+
+		dropArea.addEventListener('dragover', function(e) {
+			e.preventDefault(); // 기본 이벤트를 방지
+			e.stopPropagation(); // 이벤트 전파를 중지
+		}, false);
+
+		dropArea.addEventListener('drop', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			var file = e.dataTransfer.files[0];
+			document.getElementById('image-upload').files = e.dataTransfer.files;
+			
+		}, false);
+	});
+
+	function uploadImage() {
+		var statusDiv = document.getElementById('upload-status');
+		var fileNameSpan = document.getElementById('file-name');
+		var fileInput = document.getElementById('image-upload');
+		
+		if(fileInput.files.length === 0) {
+			statusDiv.innerHTML = '파일을 선택해주세요.';
+			return;
+		}
+		
+		var file = fileInput.files[0];
+		fileNameSpan.textContent = file.name;
+		statusDiv.innerHTML = '유사 이미지를 찾는 중...';
+
+		var formData = new FormData(document.getElementById('upload-form'));
+		fetch('/predict', {
+			method: 'POST',
+			body: formData
+		})
+		.then(response => {
+			if(response.ok) {
+				return response.json();
+			} else {
+				throw new Error('서버에서 응답이 없습니다.');
+			}
+		})
+		.then(data => {
+			updateImages(data.matches);
+			statusDiv.innerHTML = '아래에서 유사 이미지들을 확인하실 수 있습니다!';
+			displayUploadedimage(data.upload_base64);
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			statusDiv.innerHTML = '업로드 중 에러가 발생했습니다.';
+		});
+	}
+
+	function updateImages(matches) {
+		for (var i = 0; i < matches.length; i++) {
+			$('#result-image-' + (i + 1))
+				.attr('src', 'data:image/jpeg;base64,' + matches[i].image_base64)
+				.css('display', 'block');
+			$('#similarity-' + (i + 1)).html(
+				'Filename: ' + matches[i].filename + '<br>' + // 파일 이름 추가
+				'Cosine Similarity: ' + (matches[i].cos_sim * 100).toFixed(1) + '%<br>' +
+				'SSIM: ' + (matches[i].ssim_index * 100).toFixed(1) + '%<br>'
+			).show();
+			$('#boxoverlap-' + (i + 1)).html(
+				'Textbox overlap: ' + (matches[i].box_overlap_per * 100).toFixed(1) + '%'
+			).show();
+		}
+	}
+</script>
+</html>
