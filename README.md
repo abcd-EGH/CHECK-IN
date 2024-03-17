@@ -22,7 +22,7 @@ This project uses [CRAFT](https://github.com/clovaai/CRAFT-pytorch/blob/master/R
 - Also, by measuring the similarity of text areas, we provide a more nuanced and accurate assessment of potential infringement.
 - This is particularly important for graphic design images, where plagiarism often involves not just the visual identity of the image but also the positioning of text elements.
 
-### :grey_question:What is 'graphic design images'?
+### :grey_question:What is 'graphic design image'?
 
 - It refers to an image that conveys information through visual expression and creates an overall design.
 - Key features of graphic design image include image type and background, *typography*, design style, and color scheme.
