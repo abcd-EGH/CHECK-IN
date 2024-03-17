@@ -4,8 +4,8 @@ Welcome to **CHECK-IN**, the service dedicated to **CHECK copyright INfringment*
 
 This project uses [CRAFT](https://github.com/clovaai/CRAFT-pytorch/blob/master/README.md), an open-source software licensed under the MIT License. For more details on the license, please see the LICENSE file in the project repository or visit [MIT License](https://opensource.org/licenses/MIT).
 
-A demonstration video in Youtube (KOR): https://youtu.be/dMN9y0LOhQQ
-A presentation video in Youtube (KOR): https://youtu.be/25_xl5kEbx8
+- A demonstration video in Youtube (KOR): https://youtu.be/dMN9y0LOhQQ
+- A presentation video in Youtube (KOR): https://youtu.be/25_xl5kEbx8
 ![CHECK-IN_1](https://github.com/abcd-EGH/CHECK-IN/assets/131218154/9a626797-ae6d-4a74-9f83-1d11030ffe9c)
 ![CHECK-IN_2](https://github.com/abcd-EGH/CHECK-IN/assets/131218154/0af9fcc7-2f70-436b-9162-86f76d6615ff)
 
