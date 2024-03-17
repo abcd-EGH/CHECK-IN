@@ -27,7 +27,7 @@ This project uses [CRAFT](https://github.com/clovaai/CRAFT-pytorch/blob/master/R
 - It refers to an image that conveys information through visual expression and creates an overall design.
 - Key features of graphic design image include image type and background, *typography*, design style, and color scheme.
 
-### :rench:difference between MoCov2 model and SimCLR
+### :wrench:difference between MoCov2 model and SimCLR
 
 - [MoCo](https://doi.org/10.48550/arXiv.1911.05722) substituted the Momentum concept into contrast learning. Focusing on the momentum-based update mechanism for the encoder, it enables more consistent and stable feature expression over time. In addition, it has stable performance even at low batch size by utilizing the queue embedded with the negative sample.
 - [SimCLR](https://doi.org/10.48550/arXiv.2002.05709) is a model that applies the Large bat size & Longer training, Stronger augmentation, and MLP projection head to SSL and contrast learning.
