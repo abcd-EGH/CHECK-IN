@@ -1,10 +1,3 @@
-############################################# READ ME #############################################
-#                                                                                                 #
-#                Descriptions & official documents for each library and framework                 #
-#                           are included at the bottom and at README.md                           #
-#                                                                                                 #
-###################################################################################################
-
 from flask import Flask, request, render_template, jsonify
 import mocov2_model  # 모델 정의 모듈
 from torchvision import transforms

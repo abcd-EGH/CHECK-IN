@@ -145,7 +145,7 @@ def return_path_poly_size(base_path=None, image_path=None, image_PIL=None, cuda=
 
     return image_path, polys, size
 
-image_path, polys, _ = return_path_poly_size(base_path='./CRAFT_pytorch/craft_mlt_25k.pth', image_path='./CRAFT_pytorch/test/nontarget.jpg', cuda=torch.cuda.is_available())
+# image_path, polys, _ = return_path_poly_size(base_path='./CRAFT_pytorch/craft_mlt_25k.pth', image_path='./CRAFT_pytorch/test/nontarget.jpg', cuda=torch.cuda.is_available())
 
 # polys로 bounding boxes 그리기
 def draw_bounding_boxes(image, bounding_boxes):
@@ -177,6 +177,6 @@ def encode_image_to_base64(image_path, bounding_boxes):
 
     return encoded_string
 
-encoded_string = encode_image_to_base64(image_path, polys)
+# encoded_string = encode_image_to_base64(image_path, polys)
 
 
