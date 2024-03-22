@@ -1,6 +1,6 @@
-# CHECK-IN: CHECK copyright INfringment
+# CHECK-IN: CHECK copyright INfringement
 
-Welcome to **CHECK-IN**, the service dedicated to **CHECK copyright INfringment**. Our mission is to prevent unintentional copyright infringement and raise awareness about copyright issues. Also, by facilitating legal use of copyrighted works, we aim to expand the copyright protection market. This project was carried out in the 3rd term of Korea University's Intelligent Information SW Academy.
+Welcome to **CHECK-IN**, the service dedicated to **CHECK copyright INfringement**. Our mission is to prevent unintentional copyright infringement and raise awareness about copyright issues. Also, by facilitating legal use of copyrighted works, we aim to expand the copyright protection market. This project was carried out in the 3rd term of Korea University's Intelligent Information SW Academy.
 
 This project uses [CRAFT](https://github.com/clovaai/CRAFT-pytorch/blob/master/README.md), an open-source software licensed under the MIT License. For more details on the license, please see the LICENSE file in the project repository or visit [MIT License](https://opensource.org/licenses/MIT).
 
