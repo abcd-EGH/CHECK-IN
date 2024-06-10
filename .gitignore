@@ -2,3 +2,4 @@ __pycache__
 .vscode
 Image_db_final.db
 ImagesForAnnoyTest
+annoy_index_for_test.ann
